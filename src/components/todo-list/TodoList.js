@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import TodoItem from '../todo-item/TodoItem';
 import "./TodoList.css";
 
-
 function TodoList(props) {
     return (
         <ul>
@@ -15,7 +14,6 @@ function TodoList(props) {
                     onChange={props.onToggle}
                 />
             })}
-
         </ul>
     )
 }

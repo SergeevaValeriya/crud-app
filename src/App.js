@@ -19,7 +19,7 @@ function App() {
                     setLoading(false);
                 }, 2000);
             })
-    }, [])
+    }, []);
 
     function toggleTodo(id) {
         setTodos(
@@ -33,7 +33,7 @@ function App() {
     }
 
     function removeTodo(id) {
-        setTodos(todos.filter(todo => todo.id !== id))
+        setTodos(todos.filter(todo => todo.id !== id));
     }
 
     function addTodo(title) {
