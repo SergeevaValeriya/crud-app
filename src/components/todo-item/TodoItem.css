@@ -1,0 +1,32 @@
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.list-item input {
+    margin-right: 10px;
+}
+
+.delete-btn {
+    background: #efd02d;
+    border-radius: 50%;
+    border: none;
+    width: 19px;
+    height: 19px;
+    cursor: pointer;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+@media (max-width: 410px) {
+    .list-item {
+        width: 100%;
+    }
+}
