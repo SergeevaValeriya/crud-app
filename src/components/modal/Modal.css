@@ -1,13 +1,14 @@
 .modal {
+    display: flex;
+    justify-content: center;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
     padding-top: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #000;
 }
 
 .modal-body {
@@ -28,13 +29,13 @@
 }
 
 .modal-btn {
-    display: block;
     font-size: 18px;
     padding: 7px 14px;
+    margin-bottom: 10px;
+    margin-right: 10px;
     background: #efd047;
     border: none;
     border-radius: 4px;
-    margin-bottom: 10px;
     cursor: pointer;
 }
 

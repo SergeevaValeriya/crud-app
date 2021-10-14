@@ -1,14 +1,21 @@
 import React, { useEffect } from "react";
+import { useState } from "react";
 import Context from "./context";
 import TodoList from "./components/todo-list/TodoList";
 import Loader from "./components/loader/Loader";
 import Modal from "./components/modal/Modal";
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme, GlobalStyles } from "./components/themes/Themes.js";
 
-const AddTodo = React.lazy(() => import('./components/add-todo/AddTodo'))
+const AddTodo = React.lazy(() => import('./components/add-todo/AddTodo'));
+const StyledApp = styled.div`
+  color: ${(props) => props.theme.fontColor};
+`;
 
 function App() {
     const [todos, setTodos] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
+    const [theme, setTheme] = React.useState('light');
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
@@ -45,11 +52,19 @@ function App() {
         ))
     }
 
+    const themeToggler = () => {
+        theme === 'light' ? setTheme('dark') : setTheme('light');
+    }
+
   return (
-      <Context.Provider value={{ removeTodo }}>
+      <ThemeProvider theme={ theme === 'light' ? lightTheme : darkTheme }>
+          <GlobalStyles />
+          <Context.Provider value={{ removeTodo }}>
+              <StyledApp>
               <div className='wrapper'>
                   <h1>CRUD App</h1>
                   <Modal />
+                  <button className="theme-toggler" onClick={() => themeToggler()}>Change Theme</button>
                   <React.Suspense fallback={<p>loading...</p>}>
                       <AddTodo onCreate={addTodo} />
                   </React.Suspense>
@@ -60,7 +75,9 @@ function App() {
                           <span>There is nothing here.</span>
                           )}
               </div>
-      </Context.Provider>
+              </StyledApp>
+          </Context.Provider>
+      </ThemeProvider>
   );
 }
 

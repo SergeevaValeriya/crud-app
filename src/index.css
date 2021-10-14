@@ -21,3 +21,13 @@ h1 {
   margin: 50px auto;
   padding: 0 10px;
 }
+
+.theme-toggler {
+  font-size: 18px;
+  padding: 7px 14px;
+  background: #efd047;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
